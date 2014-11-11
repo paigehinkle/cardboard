@@ -8,7 +8,7 @@ THREE.StereoEffect = function ( renderer ) {
 
 	// API
 
-	this.separation = 3;
+	this.separation = 0.3;
 
 	// internals
 
@@ -53,6 +53,7 @@ THREE.StereoEffect = function ( renderer ) {
 		_cameraL.position.copy( _position );
 		_cameraL.quaternion.copy( _quaternion );
 		_cameraL.translateX( - this.separation );
+		_cameraL.updateMatrixWorld();
 
 		// right
 
@@ -63,6 +64,7 @@ THREE.StereoEffect = function ( renderer ) {
 		_cameraR.position.copy( _position );
 		_cameraR.quaternion.copy( _quaternion );
 		_cameraR.translateX( this.separation );
+		_cameraR.updateMatrixWorld();
 
 		//
 
